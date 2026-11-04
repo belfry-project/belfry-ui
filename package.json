@@ -64,7 +64,7 @@
     "@ansible/ansible-ai-connect-chatbot": "^0.1.17",
     "@ansible/react-json-chart-builder": "3.0.0",
     "@eslint/js": "9.39.5",
-    "@patternfly/patternfly": "6.5.1",
+    "@patternfly/patternfly": "6.7.0",
     "@patternfly/quickstarts": "6.5.0",
     "@patternfly/react-charts": "8.5.1",
     "@patternfly/react-component-groups": "^6.4.0",
