@@ -5,6 +5,7 @@ import { usePageDialog } from '../../framework';
 
 export interface AnsibleAboutModalProps {
   brandImageSrc: string;
+  trademark?: string;
   onClose?: () => void;
 }
 
@@ -18,10 +19,13 @@ function AnsibleAboutModal(props: AnsibleAboutModalProps) {
         setDialog(undefined);
         props.onClose?.();
       }}
-      trademark={t(`Copyright {{fullYear}} Red Hat, Inc.`, { fullYear: new Date().getFullYear() })}
+      trademark={
+        props.trademark ??
+        t(`Copyright {{fullYear}} Red Hat, Inc.`, { fullYear: new Date().getFullYear() })
+      }
       brandImageSrc={props.brandImageSrc}
       brandImageAlt={t('Brand Logo')}
-      productName={process.env.PRODUCT ?? t('AWX')}
+      productName={process.env.PRODUCT ?? t('Belfry')}
     >
       <TextContent>
         <TextList component="dl">

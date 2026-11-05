@@ -8,7 +8,7 @@ import { PageMastheadDropdown } from '../../../framework/PageMasthead/PageMasthe
 import { PageNotificationsIcon } from '../../../framework/PageMasthead/PageNotificationsIcon';
 import { PageThemeSwitcher } from '../../../framework/PageMasthead/PageThemeSwitcher';
 import { usePageNotifications } from '../../../framework/PageNotifications/PageNotificationsProvider';
-import AwxBrand from '../../assets/awx-logo.svg';
+import BelfryBrand from '../../assets/belfry-logo.svg';
 import { useAnsibleAboutModal } from '../../common/AboutModal';
 import { PageRefreshIcon } from '../../common/PageRefreshIcon';
 import { useGet } from '../../common/crud/useGet';
@@ -33,7 +33,7 @@ export function AwxMasthead() {
     refreshActiveAwxUser?.();
   }, [refreshActiveAwxUser]);
   return (
-    <PageMasthead brand={<AwxBrand style={{ height: 60 }} />}>
+    <PageMasthead brand={<BelfryBrand style={{ height: 40 }} />}>
       <ToolbarGroup variant="icon-button-group" style={{ flexGrow: 1 }}>
         <ToolbarItem style={{ marginLeft: 'auto' }}>
           <PageRefreshIcon />
@@ -58,7 +58,12 @@ export function AwxMasthead() {
             </DropdownItem>
             <DropdownItem
               id="about"
-              onClick={() => openAnsibleAboutModal({ brandImageSrc: '/assets/awx-logo.svg' })}
+              onClick={() =>
+                openAnsibleAboutModal({
+                  brandImageSrc: `${__webpack_public_path__}assets/belfry-logo.svg`,
+                  trademark: t('Based on AWX. AWX and Ansible are trademarks of Red Hat, Inc.'),
+                })
+              }
               data-cy="masthead-about"
             >
               {t('About')}

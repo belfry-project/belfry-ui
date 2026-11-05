@@ -36,3 +36,6 @@ declare namespace NodeJS {
     EDA_API_PREFIX: string;
   }
 }
+
+// Set by webpack at runtime to the public path the bundle is served from.
+declare let __webpack_public_path__: string;

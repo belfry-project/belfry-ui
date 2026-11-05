@@ -1,6 +1,7 @@
 import { Page } from '@patternfly/react-core';
 import useSWR, { mutate } from 'swr';
 import { LoadingState } from '../../../framework/components/LoadingState';
+import BelfryBrand from '../../assets/belfry-logo.svg';
 import { AnsibleLogin } from '../../common/AnsibleLogin/AnsibleLogin';
 import type { AuthOption } from '../../common/SocialAuthLogin';
 import { requestGet } from '../../common/crud/Data';
@@ -44,7 +45,7 @@ export function AwxLogin(props: { children: React.ReactNode }) {
           refreshActiveAwxUser?.();
           void mutate(() => true);
         }}
-        brandImg="/assets/awx-logo.svg"
+        brandImg={<BelfryBrand style={{ height: 64 }} aria-label={process.env.PRODUCT} />}
         brandImgAlt={process.env.PRODUCT}
       />
     );
