@@ -18,7 +18,7 @@ type Resource = { id: string; name: string };
 export function AwxOverview() {
   const { t } = useTranslation();
   const { openManageDashboard, managedResources } = useManagedAwxDashboard();
-  const product: string = process.env.PRODUCT ?? t('AWX');
+  const product: string = process.env.PRODUCT ?? t('Belfry');
   function renderCustomizeControls() {
     return (
       <Button icon={<CogIcon />} variant="link" onClick={openManageDashboard}>

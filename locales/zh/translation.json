@@ -309,7 +309,7 @@
   "Certified": "已认证",
   "Change and upload collections to namespaces.": "Change and upload collections to namespaces.",
   "Change existing execution environments.": "Change existing execution environments.",
-  "Change PROJECTS_ROOT when deploying {{product}} {{brand}} to change this location.": "Change PROJECTS_ROOT when deploying {{product}} {{brand}} to change this location.",
+  "Change PROJECTS_ROOT when deploying {{product}} to change this location.": "Change PROJECTS_ROOT when deploying {{product}} to change this location.",
   "Changed": "Changed",
   "Changes made by job template": "Changes made by job template",
   "Check": "检查",

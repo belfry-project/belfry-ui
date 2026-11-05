@@ -14,7 +14,7 @@ module.exports = function (env, argv) {
   // FavIcons
   config.plugins.unshift(
     new FaviconsWebpackPlugin({
-      logo: './frontend/assets/awx-icon.svg',
+      logo: './frontend/assets/belfry-icon.svg',
       inject: true,
     })
   );

@@ -70,7 +70,9 @@ export function RunCommandDetailStep() {
         label={t('Module')}
         options={moduleOptions}
         labelHelpTitle={t('Module')}
-        labelHelp={t(`These are the modules that AWX supports running commands against.`)}
+        labelHelp={t(`These are the modules that {{product}} supports running commands against.`, {
+          product: process.env.PRODUCT,
+        })}
       />
       <PageFormTextInput
         name="module_args"
@@ -150,7 +152,8 @@ export function RunCommandDetailStep() {
         label={t('Privilege escalation')}
         labelHelpTitle={t('Privilege escalation')}
         labelHelp={t(
-          `Enables creation of a provisioning callback URL. Using the URL a host can contact AWX and request a configuration update using this job template --become option to the  ansible command`
+          `Enables creation of a provisioning callback URL. Using the URL a host can contact {{product}} and request a configuration update using this job template --become option to the  ansible command`,
+          { product: process.env.PRODUCT }
         )}
       />
       <PageFormDataEditor

@@ -17,7 +17,6 @@ export function ManualSubForm(props: { localPath?: string }) {
   const { data: config } = useSWR<IConfigData>(awxAPI`/config/`, (url: string) =>
     fetch(url).then((r) => r.json())
   );
-  const brand: string = process.env.BRAND ?? 'AWX';
   const product: string = process.env.PRODUCT ?? t('Ansible');
   const basePathHelpBlock = (
     <Trans i18nKey="basePathHelpBlock">
@@ -27,9 +26,7 @@ export function ManualSubForm(props: { localPath?: string }) {
         provide the full path used to locate playbooks.
       </p>
       <br></br>
-      <p>
-        Change PROJECTS_ROOT when deploying {product} {brand} to change this location.
-      </p>
+      <p>Change PROJECTS_ROOT when deploying {product} to change this location.</p>
     </Trans>
   );
   const noPlaybookDirectoriesAlert = (
@@ -38,8 +35,8 @@ export function ManualSubForm(props: { localPath?: string }) {
         There are no available playbook directories in {config?.project_base_dir ?? ''}. Either that
         directory is empty, or all of the contents are already assigned to other projects. Create a
         new directory there and make sure the playbook files can be read by the &quot;awx&quot;
-        system user, or have {product} {brand} directly retrieve your playbooks from source control
-        using the Source Control Type option above.
+        system user, or have {product} directly retrieve your playbooks from source control using
+        the Source Control Type option above.
       </p>
     </Trans>
   );
