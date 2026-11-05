@@ -1,6 +1,10 @@
-# Ansible UI
+# Belfry UI
 
-UI projects for [Ansible](https://www.ansible.com).
+The web UI of [Belfry](https://github.com/belfry-project/belfry), the community continuation of AWX. Belfry builds its UI from the `main` branch of this repository (`UI_MODE=AWX`, product name "Belfry").
+
+This repository is a continuation of [Ansible UI](https://github.com/ansible/ansible-ui) (its `main` branch as of September 2024), which also contains the UIs for Automation Hub and Event-Driven Ansible. Those are kept as they are but are not built or published by Belfry.
+
+AWX and Ansible are trademarks of Red Hat, Inc. Belfry is not affiliated with or endorsed by Red Hat, Inc.; the Belfry build does not use the AWX logo.
 
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
@@ -20,7 +24,7 @@ UI projects for [Ansible](https://www.ansible.com).
 2. Clone Repository
 
    ```zsh
-   git clone git@github.com:ansible/ansible-ui.git
+   git clone https://github.com/belfry-project/belfry-ui.git
    ```
 
 3. Install Package Dependencies
