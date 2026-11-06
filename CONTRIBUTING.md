@@ -2,15 +2,15 @@
 
 Thank you for investing your time in contributing to our project!
 
-To get an overview of the project, read the [README](README.md).
+To get an overview of the project, read the [README](README.md). The process (issues, pull requests against `main`, commit messages, CI, code of conduct) is the same for every Belfry repository and is described in the organization's [contributing guide](https://github.com/belfry-project/.github/blob/main/CONTRIBUTING.md). This file covers what is specific to the UI.
 
 ## Issues
 
-If you find a problem with the project, search if an issue already exists. If a related issue doesn't exist, you can open a new issue.
+If you find a problem with the UI, search the [issues](https://github.com/belfry-project/belfry-ui/issues) to see if it was already reported. If not, open a new issue. Never report a security vulnerability in a public issue; see the [security policy](https://github.com/belfry-project/.github/blob/main/SECURITY.md).
 
 ## Code changes
 
-If you have forked the project and created a branch with changes you would like to see added to the project, create a pull request and your request will be reviewed.
+Create a branch from `main` with your changes and open a pull request against `main`; it will be reviewed. No Developer Certificate of Origin sign-off is required.
 
 ## Text and Internationalization
 
