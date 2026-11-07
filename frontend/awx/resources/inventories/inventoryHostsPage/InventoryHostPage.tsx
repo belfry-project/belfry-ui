@@ -41,12 +41,16 @@ export function InventoryHostPage() {
   if (params.inventory_type === 'inventory') {
     tabs = [
       { label: t('Details'), page: AwxRoute.InventoryHostDetails },
+      { label: t('Overview'), page: AwxRoute.InventoryHostOverview },
       { label: t('Facts'), page: AwxRoute.InventoryHostFacts },
       { label: t('Groups'), page: AwxRoute.InventoryHostGroups },
       { label: t('Jobs'), page: AwxRoute.InventoryHostJobs },
     ];
   } else {
-    tabs = [{ label: t('Details'), page: AwxRoute.InventoryHostDetails }];
+    tabs = [
+      { label: t('Details'), page: AwxRoute.InventoryHostDetails },
+      { label: t('Overview'), page: AwxRoute.InventoryHostOverview },
+    ];
   }
 
   return (
