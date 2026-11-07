@@ -14,7 +14,7 @@ describe('WorflowJobTemplatePage', () => {
     cy.fixture('organizations').then((organizations: AwxItemsResponse<Organization[]>) => {
       cy.intercept(
         'GET',
-        'api/v2/organizations/?role_level=notification_admin_role',
+        'api/v2/organizations/?role_level=add_notificationtemplate',
         organizations
       );
     });
@@ -37,7 +37,7 @@ describe('WorflowJobTemplatePage', () => {
     cy.intercept(
       {
         method: 'GET',
-        url: '/api/v2/organizations/?role_level=notification_admin_role',
+        url: '/api/v2/organizations/?role_level=add_notificationtemplate',
         hostname: 'localhost',
       },
       { fixture: 'organizations.json' }
@@ -62,7 +62,7 @@ describe('WorflowJobTemplatePage', () => {
     cy.intercept(
       {
         method: 'GET',
-        url: '/api/v2/organizations/?role_level=notification_admin_role',
+        url: '/api/v2/organizations/?role_level=add_notificationtemplate',
         hostname: 'localhost',
       },
       { fixture: 'organizations.json' }
@@ -88,7 +88,7 @@ describe('WorflowJobTemplatePage', () => {
     cy.intercept(
       {
         method: 'GET',
-        url: '/api/v2/organizations/?role_level=notification_admin_role',
+        url: '/api/v2/organizations/?role_level=add_notificationtemplate',
         hostname: 'localhost',
       },
       { fixture: 'organizations.json' }
@@ -119,7 +119,7 @@ describe('WorflowJobTemplatePage', () => {
 
       cy.intercept(
         'GET',
-        '/api/v2/organizations/?role_level=notification_admin_role',
+        '/api/v2/organizations/?role_level=add_notificationtemplate',
         organizations
       ).as('getOrganizations');
     });
@@ -148,7 +148,7 @@ describe('WorflowJobTemplatePage', () => {
 
       cy.intercept(
         'GET',
-        '/api/v2/organizations/?role_level=notification_admin_role',
+        '/api/v2/organizations/?role_level=add_notificationtemplate',
         organizations
       ).as('getOrganizations');
     });

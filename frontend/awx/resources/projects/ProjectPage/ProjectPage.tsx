@@ -42,7 +42,7 @@ export function ProjectPage() {
     refresh: refreshNotifAdmin,
     isLoading: isNotifAdminLoading,
   } = useGet<AwxItemsResponse<Organization>>(awxAPI`/organizations/`, {
-    role_level: 'notification_admin_role',
+    role_level: 'add_notificationtemplate',
   });
   const error = isNotifAdminError || projectError;
   const getPageUrl = useGetPageUrl();
