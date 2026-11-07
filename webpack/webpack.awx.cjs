@@ -19,32 +19,40 @@ module.exports = function (env, argv) {
     })
   );
 
-  config.devServer.proxy = {
-    '/api': {
+  // webpack-dev-server 5 dropped `bypass`; set the headers on the proxied request instead.
+  config.devServer.proxy = [
+    {
+      context: ['/api'],
       target: AWX_SERVER,
       secure: false,
-      bypass: (req) => {
-        req.headers.host = proxyUrl.host;
-        req.headers.origin = proxyUrl.origin;
-        req.headers.referer = proxyUrl.href;
+      on: {
+        proxyReq: (proxyReq) => {
+          proxyReq.setHeader('host', proxyUrl.host);
+          proxyReq.setHeader('origin', proxyUrl.origin);
+          proxyReq.setHeader('referer', proxyUrl.href);
+        },
       },
     },
-    '/sso': {
+    {
+      context: ['/sso'],
       target: AWX_SERVER,
       secure: false,
-      bypass: (req, res, options) => {
-        req.headers.origin = proxyUrl.origin;
-        req.headers.host = getRawHeader(req.rawHeaders, 'Host') || proxyUrl.host;
-        req.referrer = getRawHeader(req.rawHeaders, 'Referer') || proxyUrl.href;
+      on: {
+        proxyReq: (proxyReq, req) => {
+          proxyReq.setHeader('origin', proxyUrl.origin);
+          proxyReq.setHeader('host', getRawHeader(req.rawHeaders, 'Host') || proxyUrl.host);
+          proxyReq.setHeader('referer', getRawHeader(req.rawHeaders, 'Referer') || proxyUrl.href);
+        },
       },
     },
-    '/websocket': {
+    {
+      context: ['/websocket'],
       target: AWX_SERVER,
       secure: false,
       ws: true,
       changeOrigin: true,
     },
-  };
+  ];
   return config;
 };
 

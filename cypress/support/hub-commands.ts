@@ -146,7 +146,7 @@ Cypress.Commands.add('galaxykit', (operation: string, ...args: string[]) => {
     args
   )}`;
 
-  cy.exec(cmd, options).then(({ code, stderr, stdout }) => {
+  cy.exec(cmd, options).then(({ exitCode: code, stderr, stdout }) => {
     cy.log(`RUN ${cmd}`, code, stderr, stdout).then(() => {
       if (code) {
         cy.log('galaxykit code: ' + code.toString()).then(() => {
