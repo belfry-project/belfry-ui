@@ -1,5 +1,8 @@
 // vite.config.js
 /* eslint-disable no-restricted-exports */
+// Vite 8 publishes its types through package.json "exports" only, which the
+// "node" moduleResolution in tsconfig.json does not read.
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { defineConfig } from 'vite';
 
 export default defineConfig({
