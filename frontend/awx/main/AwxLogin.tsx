@@ -1,31 +1,16 @@
 import { Page } from '@patternfly/react-core';
-import useSWR, { mutate } from 'swr';
+import { mutate } from 'swr';
 import { LoadingState } from '../../../framework/components/LoadingState';
 import BelfryBrand from '../../assets/belfry-logo.svg';
 import { AnsibleLogin } from '../../common/AnsibleLogin/AnsibleLogin';
-import type { AuthOption } from '../../common/SocialAuthLogin';
-import { requestGet } from '../../common/crud/Data';
-import { awxAPI } from '../common/api/awx-utils';
 import { useAwxActiveUser } from '../common/useAwxActiveUser';
 import { AwxConfigProvider } from '../common/useAwxConfig';
 import { WebSocketProvider } from '../common/useAwxWebSocket';
 import { DocsVersionProvider } from '../common/useDocsVersion';
 
-type AwxAuthOptions = {
-  [key: string]: {
-    login_url: string;
-  };
-};
-
 export function AwxLogin(props: { children: React.ReactNode }) {
-  const { data: options } = useSWR<AwxAuthOptions>(awxAPI`/auth/`, requestGet);
-  const authOptions: AuthOption[] = [];
-  if (options && typeof options === 'object') {
-    Object.keys(options).forEach((key) => {
-      authOptions.push({ login_url: options[key].login_url, type: key });
-    });
-  }
-
+  // Belfry (like AWX since social auth moved out) has no /api/v2/auth/ endpoint listing
+  // social login methods: only username/password login exists, so do not probe for them.
   const { activeAwxUser, refreshActiveAwxUser } = useAwxActiveUser();
 
   if (activeAwxUser === undefined) {
@@ -39,7 +24,6 @@ export function AwxLogin(props: { children: React.ReactNode }) {
   if (!activeAwxUser) {
     return (
       <AnsibleLogin
-        authOptions={authOptions}
         loginApiUrl="/api/login/"
         onSuccess={() => {
           refreshActiveAwxUser?.();
