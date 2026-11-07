@@ -20,16 +20,18 @@ module.exports = function (env, argv) {
     })
   );
 
-  config.devServer.proxy = {
-    '/api': {
+  // Set the headers on the proxied request (http-proxy-middleware 2, as used by webpack-dev-server 5).
+  config.devServer.proxy = [
+    {
+      context: ['/api'],
       target: HUB_SERVER,
       secure: false,
-      bypass: (req) => {
-        req.headers.host = proxyUrl.host;
-        req.headers.origin = proxyUrl.origin;
-        req.headers.referer = proxyUrl.href;
+      onProxyReq: (proxyReq) => {
+        proxyReq.setHeader('host', proxyUrl.host);
+        proxyReq.setHeader('origin', proxyUrl.origin);
+        proxyReq.setHeader('referer', proxyUrl.href);
       },
     },
-  };
+  ];
   return config;
 };
