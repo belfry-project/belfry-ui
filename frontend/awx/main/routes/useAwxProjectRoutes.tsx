@@ -5,6 +5,7 @@ import { PageNavigationItem } from '../../../../framework';
 import { awxAPI } from '../../common/api/awx-utils';
 import { ProjectDetails } from '../../resources/projects/ProjectPage/ProjectDetails';
 import { CreateProject, EditProject } from '../../resources/projects/ProjectPage/ProjectForm';
+import { ProjectLaunchPlaybook } from '../../resources/projects/ProjectPage/ProjectLaunchPlaybook';
 import { ProjectJobTemplates } from '../../resources/projects/ProjectPage/ProjectJobTemplates';
 import { ProjectPage } from '../../resources/projects/ProjectPage/ProjectPage';
 import { Projects } from '../../resources/projects/Projects';
@@ -37,6 +38,11 @@ export function useAwxProjectRoutes() {
           id: AwxRoute.EditProject,
           path: ':id/edit',
           element: <EditProject />,
+        },
+        {
+          id: AwxRoute.ProjectLaunchPlaybook,
+          path: ':id/launch-playbook',
+          element: <ProjectLaunchPlaybook />,
         },
         {
           id: AwxRoute.ProjectScheduleCreate,

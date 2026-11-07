@@ -149,6 +149,28 @@ describe('projects.cy.ts', () => {
       cy.wait('@projectUpdateRequest');
     });
 
+    it('Run playbook action is only shown for projects that link launch_playbook', () => {
+      cy.fixture('projects.json').then((projects: { results: { related: object }[] }) => {
+        projects.results[0].related = {
+          ...projects.results[0].related,
+          launch_playbook: '/api/v2/projects/6/launch_playbook/',
+        };
+        cy.intercept({ method: 'GET', url: '/api/v2/projects/*' }, projects);
+      });
+      cy.mount(<Projects />);
+      cy.contains('td', 'Demo Project')
+        .parent()
+        .within(() => {
+          cy.get('#run-playbook').should('exist');
+        });
+      cy.contains('td', ' Project 1 Org 0')
+        .parent()
+        .within(() => {
+          cy.get('#sync-project').should('exist');
+          cy.get('#run-playbook').should('not.exist');
+        });
+    });
+
     it('Create Project button is disabled if the user does not have permission to create projects', () => {
       cy.mount(<Projects />);
       cy.contains('a', /^Create project$/).should('have.attr', 'aria-disabled', 'true');

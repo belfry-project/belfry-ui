@@ -3,6 +3,7 @@ import {
   CopyIcon,
   MinusCircleIcon,
   PencilAltIcon,
+  RocketIcon,
   SyncIcon,
   TrashIcon,
 } from '@patternfly/react-icons';
@@ -109,6 +110,17 @@ export function useProjectActions(
               });
             });
         },
+      },
+      {
+        type: PageActionType.Button,
+        selection: PageActionSelection.Single,
+        isPinned: true,
+        icon: RocketIcon,
+        label: t('Run playbook'),
+        // The API only links launch_playbook when running playbooks directly is enabled
+        isHidden: (project: Project) => !project.related?.launch_playbook,
+        onClick: (project: Project) =>
+          pageNavigate(AwxRoute.ProjectLaunchPlaybook, { params: { id: project.id } }),
       },
       {
         type: PageActionType.Button,
