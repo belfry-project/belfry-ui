@@ -80,6 +80,7 @@ export interface UnifiedJob
     activity_stream?: string;
     notifications: string;
     create_schedule?: string;
+    create_job_template?: string;
     job_template?: string;
     cancel: string;
     project_update?: string;
