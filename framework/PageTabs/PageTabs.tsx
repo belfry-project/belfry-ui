@@ -1,5 +1,5 @@
-import { PageSection, Skeleton, Tab, TabProps, Tabs } from '@patternfly/react-core';
-import { Children, ReactNode, isValidElement, useCallback, useState } from 'react';
+import { PageSection, Skeleton, Tab, TabProps, Tabs, TabsProps } from '@patternfly/react-core';
+import { Children, ComponentType, ReactNode, isValidElement, useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 export function PageTabs(props: {
@@ -60,7 +60,7 @@ export function PageTab(props: { label?: string; children: ReactNode }) {
 type TabElement = React.ReactElement<TabProps, React.JSXElementConstructor<TabProps>>;
 type TabsChild = TabElement | boolean | null | undefined;
 
-const TabsStyled = styled(Tabs)`
+const TabsStyled = styled(Tabs as ComponentType<TabsProps>)`
   flex-shrink: 0;
   background-color: 'var(--pf-v5-c-tabs__link--BackgroundColor)';
 `;

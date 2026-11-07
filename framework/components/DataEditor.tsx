@@ -219,7 +219,7 @@ monaco.languages.json.jsonDefaults.setDiagnosticsOptions({ validate: true });
 // Set up Monaco editor yaml language support
 configureMonacoYaml(monaco, {
   validate: true,
-  format: true,
+  format: { enable: true },
   schemas: [
     {
       uri: '',
