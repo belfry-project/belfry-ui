@@ -31,7 +31,7 @@ export function usePageActionDisabled<T extends object>() {
     (
       action: IPageAction<T>,
       selectedItem: T | undefined,
-      selectedItems?: T[] | undefined
+      selectedItems?: T[]
     ): string | undefined => {
       if ('selection' in action) {
         switch (action.selection) {

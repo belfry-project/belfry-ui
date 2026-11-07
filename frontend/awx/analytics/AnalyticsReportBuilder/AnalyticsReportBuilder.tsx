@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
@@ -189,7 +188,6 @@ export function FillDefaultProps(props: AnalyticsReportBuilderProps) {
   // set id function as default
   if (!props.rowKeyFn) {
     props.rowKeyFn = (item) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
       return item.id;
     };
   }
@@ -389,7 +387,6 @@ function AnalyticsReportBuilderTable(props: AnalyticsTableProps) {
 
   // some function for chart
   const customTooltipFormatting = ({ datum }: { datum: Record<string, AnyType> }) => {
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     const tooltip = `${sortOption} for ${datum.name || ''}: ${
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       formattedValue('successful_hosts_savings', datum.y) || ''

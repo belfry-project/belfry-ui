@@ -1,7 +1,6 @@
 import { CredentialType } from '../../../interfaces/CredentialType';
 import { CredentialDetailsInner as CredentialDetails } from './CredentialDetails';
 import mockCredential from '../../../../../cypress/fixtures/credential.json';
-import { Credential } from '../../../interfaces/Credential';
 
 describe('CredentialDetails', () => {
   it('Component renders and displays Credential', () => {
@@ -13,7 +12,7 @@ describe('CredentialDetails', () => {
     cy.fixture('credentialType').then((credentialInputSources: CredentialType) => {
       cy.intercept('GET', '/api/v2/credentials/2/input_sources/*', credentialInputSources);
     });
-    cy.mount(<CredentialDetails credential={mockCredential as Credential} />);
+    cy.mount(<CredentialDetails credential={mockCredential} />);
     cy.contains('dd#name>div', 'Ansible Galaxy').should('exist');
   });
 });

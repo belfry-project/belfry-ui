@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { edaAPI } from '../../common/eda-utils';
 import { RuleAuditActions } from './RuleAuditActions';
 

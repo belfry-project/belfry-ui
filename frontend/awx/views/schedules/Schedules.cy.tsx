@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { ToolbarFilterType } from '../../../../framework';
 import * as useOptions from '../../../common/crud/useOptions';
 import { AwxItemsResponse } from '../../common/AwxItemsResponse';

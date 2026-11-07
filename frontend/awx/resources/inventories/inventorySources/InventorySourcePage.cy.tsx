@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable i18next/no-literal-string */
 import { InventorySourcePage } from './InventorySourcePage';
 
 describe('InventorySourcePage', () => {

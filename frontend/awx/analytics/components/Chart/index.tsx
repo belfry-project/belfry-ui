@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import ChartBuilder, {
   ChartData,
   ChartFunctions,
@@ -9,7 +7,6 @@ import ChartBuilder, {
 import { ChartDataSerie } from '@ansible/react-json-chart-builder/dist/cjs';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import { FC, useEffect, useState } from 'react';
-import { AnyType } from '../../AnalyticsReportBuilder/AnalyticsReportBuilder';
 import { convertApiToData } from './convertApi';
 import { ApiReturnType } from './types';
 
@@ -90,7 +87,7 @@ export const Chart: FC<Props> = ({ schema, data, specificFunctions }) => {
 
   return (
     <ChartBuilder
-      schema={schema as AnyType}
+      schema={schema}
       functions={{
         ...customFunctions(specificFunctions),
       }}

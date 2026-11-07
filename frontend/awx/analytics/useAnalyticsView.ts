@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -236,10 +235,8 @@ export function useAnalyticsView<T extends object, DataType extends object = Any
         await fetchData();
       })();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [changed, disableLoading]);
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   if (error instanceof RequestError) {
     if (error.statusCode === 404 && view.page > 1) {
       view.setPage(1);
@@ -281,7 +278,6 @@ export function fillFilters(
         } else {
           for (const value of values) {
             if (payloadData && payloadData[key] && Array.isArray(payloadData[key])) {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-call
               payloadData[key].push(value);
             }
           }

@@ -30,9 +30,7 @@ export function useEdaMultiSelectListView<T extends { id: string | number }>(
 
   const view = useEdaView<T>({
     ...viewOptions,
-    defaultSelection: ((wizardData as { [key: string]: [] })[fieldName] ||
-      stepData[fieldName] ||
-      []) as T[],
+    defaultSelection: (wizardData as { [key: string]: [] })[fieldName] || stepData[fieldName] || [],
   });
 
   useEffect(() => {

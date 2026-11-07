@@ -1,0 +1,60 @@
+{
+  "cypress/support/awx-commands.ts": {
+    "@typescript-eslint/await-thenable": {
+      "count": 2
+    }
+  },
+  "framework/PageForm/ErrorAlert.tsx": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 1
+    }
+  },
+  "framework/PageForm/PageForm.tsx": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 1
+    }
+  },
+  "framework/PageTable/PageTable.tsx": {
+    "@typescript-eslint/no-unsafe-enum-comparison": {
+      "count": 6
+    }
+  },
+  "framework/PageToolbar/PageToolbarView.tsx": {
+    "@typescript-eslint/no-unsafe-enum-comparison": {
+      "count": 5
+    }
+  },
+  "frontend/awx/access/credentials/CredentialPlugins/hooks/useCredentialPluginsDialog.tsx": {
+    "@typescript-eslint/prefer-promise-reject-errors": {
+      "count": 2
+    }
+  },
+  "frontend/awx/administration/notifiers/NotifierForm.tsx": {
+    "@typescript-eslint/only-throw-error": {
+      "count": 1
+    }
+  },
+  "frontend/awx/resources/hosts/HostPage/HostOverview.tsx": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 1
+    }
+  },
+  "frontend/awx/resources/templates/TemplateForm.tsx": {
+    "@typescript-eslint/await-thenable": {
+      "count": 2
+    }
+  },
+  "frontend/awx/resources/templates/WorkflowVisualizer/hooks/useSaveVisualizer.tsx": {
+    "@typescript-eslint/no-base-to-string": {
+      "count": 2
+    }
+  },
+  "frontend/hub/administration/tasks/TaskDetails.tsx": {
+    "@typescript-eslint/await-thenable": {
+      "count": 1
+    },
+    "@typescript-eslint/prefer-promise-reject-errors": {
+      "count": 1
+    }
+  }
+}

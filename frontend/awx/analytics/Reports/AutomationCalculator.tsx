@@ -406,7 +406,6 @@ export function AutomationCalculatorInternal(props: {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const customTooltipFormatting = ({ datum }: { datum: Record<string, any> }) => {
-    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     const tooltip = `${sortOption.label} for ${datum.name || ''}: ${
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       formattedValue(sortOption.value, datum.y) || ''

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-empty-function */
 import {
   Alert,
   Card,
@@ -141,7 +139,7 @@ export function PageTableCard<T extends object>(props: {
   return (
     <Card
       id={card.id as string}
-      ouiaId={card.id as string}
+      ouiaId={card.id}
       key={card.id ?? card.title}
       isFlat
       isLarge

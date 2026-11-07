@@ -59,7 +59,7 @@ export function HubContextProviderInternal(props: { children: ReactNode }) {
   return <HubContext.Provider value={context}>{props.children}</HubContext.Provider>;
 }
 
-function hasPermission(permission: string, user?: HubUser | null | undefined) {
+function hasPermission(permission: string, user?: HubUser | null) {
   if (!user?.model_permissions) {
     return false;
   }

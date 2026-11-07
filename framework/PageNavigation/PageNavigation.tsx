@@ -135,12 +135,10 @@ function PageNavigationItemComponent(props: { item: PageNavigationItem; baseRout
   return (
     <NavExpandable
       title={
-        (
-          <div>
-            <div style={{ textAlign: 'left' }}>{item.label}</div>
-            {item.subtitle && <div style={subtitleStyle}>{item.subtitle}</div>}
-          </div>
-        ) as unknown as string
+        <div>
+          <div style={{ textAlign: 'left' }}>{item.label}</div>
+          {item.subtitle && <div style={subtitleStyle}>{item.subtitle}</div>}
+        </div>
       }
       isExpanded={isExpanded}
       onExpand={(_e, expanded: boolean) => setExpanded(expanded)}

@@ -36,7 +36,7 @@ export async function getRepositoryBasePath(
       const repositoryResponse = await requestGet<Results>(
         pulpAPI`/repositories/ansible/ansible/?name=${name}&limit=1`
       );
-      repository = firstResult(repositoryResponse) as Repository;
+      repository = firstResult(repositoryResponse);
     }
 
     error = t(`Failed to find a distribution for repository {{name}}`, { name });
@@ -62,7 +62,7 @@ export async function getRepositoryBasePath(
 
 // the same for hook version
 type Results = { results: Repository[] | Distribution[] };
-export function useRepositoryBasePath(name: string, pulp_href?: string | undefined) {
+export function useRepositoryBasePath(name: string, pulp_href?: string) {
   const { t } = useTranslation();
 
   const [basePath, setBasePath] = useState<string>('');

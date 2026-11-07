@@ -69,24 +69,24 @@ export function useRelaunchJob(jobRelaunchParams?: JobRelaunch) {
         let relaunchJob;
         switch (job.type) {
           case 'ad_hoc_command': {
-            relaunchJob = await postRequest(relaunchEndpoint(job), {} as AdHocCommandRelaunch);
+            relaunchJob = await postRequest(relaunchEndpoint(job), {});
             break;
           }
           case 'workflow_job': {
-            relaunchJob = await postRequest(relaunchEndpoint(job), {} as WorkflowJobRelaunch);
+            relaunchJob = await postRequest(relaunchEndpoint(job), {});
             break;
           }
           case 'job': {
             relaunchJob = await postRequest(relaunchEndpoint(job), {
               ...jobRelaunchParams,
-            } as JobRelaunch);
+            });
             break;
           }
           case 'inventory_update':
-            relaunchJob = await postRequest(relaunchEndpoint(job), {} as InventorySourceUpdate);
+            relaunchJob = await postRequest(relaunchEndpoint(job), {});
             break;
           case 'project_update':
-            relaunchJob = await postRequest(relaunchEndpoint(job), {} as ProjectUpdateView);
+            relaunchJob = await postRequest(relaunchEndpoint(job), {});
             break;
         }
         void navigate(getJobOutputUrl(relaunchJob as UnifiedJob));

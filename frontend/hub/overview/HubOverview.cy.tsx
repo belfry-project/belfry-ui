@@ -17,7 +17,6 @@ describe('HubOverview', () => {
 
   it('"Manage view" is displayed to non-admin users too', () => {
     cy.fixture('hub_admin').then((user: HubUser) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       cy.intercept('**/_ui/v1/me/', { ...user, is_superuser: false });
     });
     cy.intercept('**/_ui/v1/settings/', { fixture: 'hub_settings.json' });

@@ -32,7 +32,6 @@ import { ActionsResponse, OptionsResponse } from '../interfaces/OptionsResponse'
 import { Alert } from '@patternfly/react-core';
 import { EventStreamDetails } from './EventStreamPage/EventStreamDetails';
 
-// eslint-disable-next-line react/prop-types
 function EventStreamInputs() {
   const { t } = useTranslation();
   const typeId = useWatch<IEdaEventStreamCreate>({

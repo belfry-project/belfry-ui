@@ -218,7 +218,6 @@ export function useView(options: ViewOptions): IView {
 
     // For each filter with value, add it to the query string
     for (const filter in filterState) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       newSearchParams.set(filter, filterState[filter]!.join(','));
     }
 

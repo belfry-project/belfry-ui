@@ -35,7 +35,7 @@ export function PageScatterChart() {
           // ariaTitle="Stack chart example"
           containerComponent={
             <ChartVoronoiContainer
-              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions, @typescript-eslint/no-unsafe-member-access
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
               labels={({ datum }) => `${datum.name}: ${datum.y}`}
               constrainToVisibleArea
             />

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /// <reference types="cypress" />
 
 //Tests a user's ability to create, edit, and delete a Project in the EDA UI.

@@ -9,7 +9,7 @@ export function NotificationUserAccess() {
       service="awx"
       id={params.id || ''}
       type={'notificationtemplate'}
-      addRolesRoute={AwxRoute.NotificationAddUsers as string}
+      addRolesRoute={AwxRoute.NotificationAddUsers}
     />
   );
 }

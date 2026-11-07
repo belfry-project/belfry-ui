@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { Flex, FlexItem, Split, SplitItem } from '@patternfly/react-core';
 import { useEffect, useMemo, useState } from 'react';
 import { IconWrapper } from '../../../../../framework/components/IconWrapper';

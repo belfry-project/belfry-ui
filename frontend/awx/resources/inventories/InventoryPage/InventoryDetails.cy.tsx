@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { Inventory } from '../../../interfaces/Inventory';
 import { InventoryDetailsInner as InventoryDetails } from './InventoryDetails';
 

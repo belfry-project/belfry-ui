@@ -30,9 +30,7 @@ export function useAwxMultiSelectListView<T extends { id: number }>(
 
   const view = useAwxView<T>({
     ...viewOptions,
-    defaultSelection: ((wizardData as { [key: string]: [] })[fieldName] ||
-      stepData[fieldName] ||
-      []) as T[],
+    defaultSelection: (wizardData as { [key: string]: [] })[fieldName] || stepData[fieldName] || [],
   });
 
   useEffect(() => {
