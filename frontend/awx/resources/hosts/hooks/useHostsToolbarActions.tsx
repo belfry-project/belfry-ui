@@ -17,10 +17,13 @@ import { useOptions } from '../../../../common/crud/useOptions';
 import { awxAPI } from '../../../common/api/awx-utils';
 import { OptionsResponse, ActionsResponse } from '../../../interfaces/OptionsResponse';
 
+import { useFactFilterToolbarAction } from '../components/FactFilter';
+
 export function useHostsToolbarActions(view: IAwxView<AwxHost>) {
   const { t } = useTranslation();
   const pageNavigate = usePageNavigate();
   const deleteHosts = useDeleteHosts(view.unselectItemsAndRefresh);
+  const factFilterAction = useFactFilterToolbarAction(view);
 
   const { data } = useOptions<OptionsResponse<ActionsResponse>>(awxAPI`/hosts/`);
   const canCreateHost = Boolean(data && data.actions && data.actions['POST']);
@@ -56,6 +59,7 @@ export function useHostsToolbarActions(view: IAwxView<AwxHost>) {
             query: { ...view.filterState },
           }),
       },
+      factFilterAction,
       { type: PageActionType.Seperator },
       {
         type: PageActionType.Button,
@@ -67,6 +71,6 @@ export function useHostsToolbarActions(view: IAwxView<AwxHost>) {
         isDisabled: (hosts: AwxHost[]) => cannotDeleteResources(hosts, t),
       },
     ],
-    [pageNavigate, deleteHosts, canCreateHost, view.filterState, t]
+    [pageNavigate, deleteHosts, canCreateHost, view.filterState, factFilterAction, t]
   );
 }

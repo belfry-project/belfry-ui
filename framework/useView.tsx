@@ -81,6 +81,12 @@ export interface ViewOptions {
    * utilizing this option.
    */
   filterQueryStringKeys?: string[];
+
+  /**
+   * Query string keys whose value is a single filter value that may contain commas.
+   * Other filter values are split on commas when they are read from the query string.
+   */
+  unsplitQueryStringKeys?: string[];
 }
 
 export type QueryParams = {
@@ -99,8 +105,13 @@ export interface ViewExtendedOptions<T extends object> extends ViewOptions {
 }
 
 export function useView(options: ViewOptions): IView {
-  const { defaultValues, disableQueryString, ignoreQueryStringKeys, filterQueryStringKeys } =
-    options;
+  const {
+    defaultValues,
+    disableQueryString,
+    ignoreQueryStringKeys,
+    filterQueryStringKeys,
+    unsplitQueryStringKeys,
+  } = options;
 
   const mountedRef = useIsMountedRef();
 
@@ -167,7 +178,7 @@ export function useView(options: ViewOptions): IView {
       if (defaultIgnoreQueryStringKeys.includes(key)) continue;
       const value = searchParams.get(key);
       if (value) {
-        const values = value.split(',');
+        const values = unsplitQueryStringKeys?.includes(key) ? [value] : value.split(',');
         filters[key] = values;
       }
     }

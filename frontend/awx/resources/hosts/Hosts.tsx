@@ -19,7 +19,7 @@ export function Hosts() {
   const { t } = useTranslation();
   const product: string = process.env.PRODUCT ?? t('Belfry');
   const pageNavigate = usePageNavigate();
-  const toolbarFilters = useHostsFilters();
+  const toolbarFilters = useHostsFilters({ hostFilter: true });
   const tableColumns = useHostsColumns();
   const view = useAwxView<AwxHost>({ url: awxAPI`/hosts/`, toolbarFilters, tableColumns });
   const config = useAwxConfig();

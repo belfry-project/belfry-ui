@@ -19,10 +19,13 @@ import { IAwxView } from '../../../common/useAwxView';
 import { useDeleteHosts } from '../../hosts/hooks/useDeleteHosts';
 import { useRunCommandAction } from './useInventoriesGroupsToolbarActions';
 
+import { useFactFilterToolbarAction } from '../../hosts/components/FactFilter';
+
 export function useInventoriesHostsToolbarActions(view: IAwxView<AwxHost>) {
   const { t } = useTranslation();
   const pageNavigate = usePageNavigate();
   const deleteHosts = useDeleteHosts(view.unselectItemsAndRefresh);
+  const factFilterAction = useFactFilterToolbarAction(view);
   const params = useParams<{ id: string; inventory_type: string }>();
   const inventory_type = params.inventory_type;
 
@@ -61,6 +64,7 @@ export function useInventoriesHostsToolbarActions(view: IAwxView<AwxHost>) {
     }
 
     actions.push(runCommandAction);
+    actions.push(factFilterAction);
 
     if (inventory_type === 'inventory') {
       actions.push({ type: PageActionType.Seperator });
@@ -83,6 +87,7 @@ export function useInventoriesHostsToolbarActions(view: IAwxView<AwxHost>) {
     params.id,
     canCreateHost,
     runCommandAction,
+    factFilterAction,
     inventory_type,
   ]);
 }
