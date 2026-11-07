@@ -1,5 +1,5 @@
 import { ButtonVariant } from '@patternfly/react-core';
-import { DownloadIcon, MinusCircleIcon, TrashIcon } from '@patternfly/react-icons';
+import { DownloadIcon, MinusCircleIcon, SaveIcon, TrashIcon } from '@patternfly/react-icons';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IPageAction, PageActionSelection, PageActionType } from '../../../../../framework';
@@ -10,6 +10,7 @@ import { useDeleteJobs } from './useDeleteJobs';
 import { TFunction } from 'i18next';
 import { useDownloadJobOutput } from './useDownloadJobOutput';
 import { useRelaunchOptions } from './useRelaunchOptions';
+import { useSaveJobAsTemplate } from './useSaveJobAsTemplate';
 
 export const cannotCancelJob = (job: UnifiedJob, t: TFunction<'translation', undefined>) => {
   if (!isJobRunning(job.status)) return t(`The job cannot be canceled because it is not running`);
@@ -24,6 +25,7 @@ export function useJobHeaderActions(onComplete: (jobs: UnifiedJob[]) => void) {
   const deleteJobs = useDeleteJobs(onComplete);
   const downloadJobOutput = useDownloadJobOutput();
   const relaunchOptions = useRelaunchOptions();
+  const saveJobAsTemplate = useSaveJobAsTemplate();
   return useMemo<IPageAction<UnifiedJob>[]>(() => {
     const cannotDeleteJob = (job: UnifiedJob) => {
       if (!job.summary_fields.user_capabilities.delete)
@@ -55,6 +57,16 @@ export function useJobHeaderActions(onComplete: (jobs: UnifiedJob[]) => void) {
         ouiaId: 'job-detail-download-button',
         isHidden: (job: UnifiedJob) => !job.related.stdout,
       },
+      {
+        // Belfry: only jobs that ran a playbook directly (no job template) link create_job_template
+        type: PageActionType.Button,
+        selection: PageActionSelection.Single,
+        icon: SaveIcon,
+        label: t(`Save as job template`),
+        onClick: (job: UnifiedJob) => saveJobAsTemplate(job),
+        ouiaId: 'job-detail-save-as-template-button',
+        isHidden: (job: UnifiedJob) => !job.related.create_job_template,
+      },
       { type: PageActionType.Seperator },
       {
         type: PageActionType.Button,
@@ -71,5 +83,5 @@ export function useJobHeaderActions(onComplete: (jobs: UnifiedJob[]) => void) {
       },
     ];
     return actions;
-  }, [cancelJobs, deleteJobs, relaunchOptions, downloadJobOutput, t]);
+  }, [cancelJobs, deleteJobs, relaunchOptions, downloadJobOutput, saveJobAsTemplate, t]);
 }
