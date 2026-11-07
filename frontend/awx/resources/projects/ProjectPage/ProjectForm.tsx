@@ -76,7 +76,8 @@ export function CreateProject() {
         submitText={t('Create project')}
         onSubmit={onSubmit}
         onCancel={() => void navigate(-1)}
-        defaultValue={defaultValues}
+        // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion -- sets the form type for onSubmit
+        defaultValue={defaultValues as Project}
       >
         <ProjectInputs />
       </AwxPageForm>
