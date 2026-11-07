@@ -1,3 +1,4 @@
+import { HostOverview } from '../../resources/hosts/HostPage/HostOverview';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageNavigationItem } from '../../../../framework';
@@ -30,6 +31,11 @@ export function useAwxHostRoutes() {
               id: AwxRoute.HostDetails,
               path: 'details',
               element: <InventoryHostDetails />,
+            },
+            {
+              id: AwxRoute.HostOverview,
+              path: 'overview',
+              element: <HostOverview />,
             },
             {
               id: AwxRoute.HostFacts,

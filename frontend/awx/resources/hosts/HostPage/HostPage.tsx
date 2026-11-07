@@ -57,6 +57,7 @@ export function HostPage() {
         }}
         tabs={[
           { label: t('Details'), page: AwxRoute.HostDetails },
+          { label: t('Overview'), page: AwxRoute.HostOverview },
           { label: t('Facts'), page: AwxRoute.HostFacts },
           { label: t('Groups'), page: AwxRoute.HostGroups },
           { label: t('Jobs'), page: AwxRoute.HostJobs },
