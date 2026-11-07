@@ -19,30 +19,26 @@ module.exports = function (env, argv) {
     })
   );
 
-  // webpack-dev-server 5 dropped `bypass`; set the headers on the proxied request instead.
+  // Set the headers on the proxied request (http-proxy-middleware 2, as used by webpack-dev-server 5).
   config.devServer.proxy = [
     {
       context: ['/api'],
       target: AWX_SERVER,
       secure: false,
-      on: {
-        proxyReq: (proxyReq) => {
-          proxyReq.setHeader('host', proxyUrl.host);
-          proxyReq.setHeader('origin', proxyUrl.origin);
-          proxyReq.setHeader('referer', proxyUrl.href);
-        },
+      onProxyReq: (proxyReq) => {
+        proxyReq.setHeader('host', proxyUrl.host);
+        proxyReq.setHeader('origin', proxyUrl.origin);
+        proxyReq.setHeader('referer', proxyUrl.href);
       },
     },
     {
       context: ['/sso'],
       target: AWX_SERVER,
       secure: false,
-      on: {
-        proxyReq: (proxyReq, req) => {
-          proxyReq.setHeader('origin', proxyUrl.origin);
-          proxyReq.setHeader('host', getRawHeader(req.rawHeaders, 'Host') || proxyUrl.host);
-          proxyReq.setHeader('referer', getRawHeader(req.rawHeaders, 'Referer') || proxyUrl.href);
-        },
+      onProxyReq: (proxyReq, req) => {
+        proxyReq.setHeader('origin', proxyUrl.origin);
+        proxyReq.setHeader('host', getRawHeader(req.rawHeaders, 'Host') || proxyUrl.host);
+        proxyReq.setHeader('referer', getRawHeader(req.rawHeaders, 'Referer') || proxyUrl.href);
       },
     },
     {
