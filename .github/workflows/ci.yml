@@ -1,0 +1,90 @@
+---
+# Belfry builds its UI from this repository's main branch (belfry's
+# awx/ui/Makefile runs `npm run build:awx`). This workflow checks that build,
+# the static checks and the component tests of the parts Belfry ships.
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build AWX UI
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CYPRESS_INSTALL_BINARY: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      # Same settings as belfry's awx/ui/Makefile
+      - name: Build
+        env:
+          PRODUCT: Belfry
+          PUBLIC_PATH: /static/awx/
+          ROUTE_PREFIX: /
+        run: npm run build:awx
+      - name: Check build output
+        run: |
+          test -s build/awx/index.html
+          du -sh build/awx
+
+  checks:
+    name: TSC - ESLint - Prettier
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CYPRESS_INSTALL_BINARY: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run tsc
+      - run: npm run tsc:framework
+      - run: npm run eslint
+      - run: npm run prettier
+
+  component:
+    name: Component tests (${{ matrix.directory }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        # The parts of the UI that ship in Belfry: AWX and the shared code
+        directory: [framework, frontend/common, frontend/awx]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Cypress component tests
+        env:
+          SPEC: ${{ matrix.directory }}/**/*.cy.tsx
+        run: npx cypress run --component --spec "$SPEC"
