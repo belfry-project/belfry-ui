@@ -85,7 +85,10 @@ declare global {
 Cypress.Commands.add('mount', (component, route, activeUserFixture) => {
   cy.fixture(activeUserFixture || 'activeUser.json').then((activeAwxUser: AwxUser) => {
     return mount(
-      <MemoryRouter initialEntries={route?.initialEntries || ['/1']}>
+      <MemoryRouter
+        initialEntries={route?.initialEntries || ['/1']}
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+      >
         <PageFramework defaultRefreshInterval={60}>
           <AwxActiveUserContext.Provider
             value={{ activeAwxUser, refreshActiveAwxUser: () => null }}
@@ -113,7 +116,10 @@ Cypress.Commands.add('mountEda', (component, route, activeUserFixture) => {
     );
   });
   return mount(
-    <MemoryRouter initialEntries={route?.initialEntries || ['/1']}>
+    <MemoryRouter
+      initialEntries={route?.initialEntries || ['/1']}
+      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+    >
       <PageFramework defaultRefreshInterval={60}>
         <EdaActiveUserProvider>
           <Page>
@@ -138,7 +144,10 @@ Cypress.Commands.add('mountHub', (component, route, activeUserFixture) => {
     );
   });
   return mount(
-    <MemoryRouter initialEntries={route?.initialEntries || ['/1']}>
+    <MemoryRouter
+      initialEntries={route?.initialEntries || ['/1']}
+      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+    >
       <PageFramework defaultRefreshInterval={60}>
         <HubActiveUserProvider>
           <Page>
