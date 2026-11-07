@@ -24,7 +24,7 @@ import '@cypress/code-coverage/support';
 import { Page } from '@patternfly/react-core';
 import 'cypress-react-selector';
 import type { MountReturn } from 'cypress/react';
-import { mount } from 'cypress/react18';
+import { mount } from 'cypress/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { PageFramework } from '../../framework';
 import { AwxActiveUserContext } from '../../frontend/awx/common/useAwxActiveUser';
