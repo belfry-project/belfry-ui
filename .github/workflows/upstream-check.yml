@@ -1,0 +1,30 @@
+---
+
+name: Upstream check
+
+# Weekly check for upstream commits not merged into main yet. Keeps an issue
+# labelled "upstream-sync" up to date; it never merges anything. See SYNCING.md
+# in belfry-project/.github for the sync procedure.
+
+on:
+  schedule:
+    - cron: '35 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  upstream:
+    if: github.repository == 'belfry-project/belfry-ui'
+    permissions:
+      contents: read
+      issues: write
+    uses: belfry-project/.github/.github/workflows/upstream-check.yml@main
+    with:
+      upstream_repo: ansible/ansible-ui
+      upstream_branch: main
+      note: >-
+        Upstream `main` (the AWX UI) has been frozen since 2024-09; upstream
+        development continues on `devel` (the AAP platform UI, unrelated history),
+        which Belfry does not merge.
