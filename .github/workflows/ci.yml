@@ -73,8 +73,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # The parts of the UI that ship in Belfry: AWX and the shared code
-        directory: [framework, frontend/common, frontend/awx]
+        # The parts of the UI that ship in Belfry: AWX and the shared code.
+        # frontend/awx is split up, as it holds most of the tests.
+        directory:
+          - framework
+          - frontend/common
+          - frontend/awx/access
+          - frontend/awx/administration
+          - frontend/awx/resources
+          - frontend/awx/views
+          - frontend/awx/{common,overview}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
