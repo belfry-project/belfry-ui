@@ -118,7 +118,7 @@ export function CreateRemote() {
       <HubPageForm<HubRemote>
         submitText={t('Create remote')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={{
           name: '',
           url: '',
@@ -237,7 +237,7 @@ export function EditRemote() {
   const handleRefresh = () => {
     // Navigate back when remote is not found
     if (!error && !remote) {
-      navigate(-1);
+      void navigate(-1);
     }
   };
 
@@ -250,7 +250,7 @@ export function EditRemote() {
       pulpAPI`/remotes/ansible/collection/${parsePulpIDFromURL(modifiedRemote.pulp_href)}/`,
       updatedRemote
     );
-    navigate(-1);
+    void navigate(-1);
   };
 
   if (data && data.count === 0 && !error && !remote) {
@@ -315,7 +315,7 @@ export function EditRemote() {
       <HubPageForm<RemoteFormProps>
         submitText={t('Save remote')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={remoteDefaultValues}
       >
         <RemoteInputs

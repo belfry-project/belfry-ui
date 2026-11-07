@@ -24,7 +24,7 @@ export const ActivityStreamIcon: React.FC<ActivityStreamIconProps> = ({
         verticalAlign: 'top',
       }}
       onClick={() =>
-        history(
+        void history(
           getPageUrl(AwxRoute.ActivityStream, {
             query: {
               type: type,

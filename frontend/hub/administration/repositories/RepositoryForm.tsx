@@ -2,7 +2,7 @@ import { Label } from '@patternfly/react-core';
 import { ReactNode, useCallback } from 'react';
 import { FieldValues, UseFormSetValue, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {
   LoadingPage,
@@ -219,7 +219,7 @@ export function RepositoryForm() {
       <HubPageForm<RepositoryFormProps>
         submitText={isEdit ? t('Save repository') : t('Create repository')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={repositoryFormValues}
       >
         <PageFormTextInput<RepositoryFormProps>

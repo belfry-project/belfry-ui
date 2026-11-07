@@ -70,7 +70,7 @@ export function UploadSignatureByFile(props: { collection: CollectionVersionSear
   const navigate = useNavigate();
   const pageNavigate = usePageNavigate();
   const { t } = useTranslation();
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
 
   const { collection } = props;
 

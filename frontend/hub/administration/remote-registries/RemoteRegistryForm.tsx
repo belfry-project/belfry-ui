@@ -87,7 +87,7 @@ export function CreateRemoteRegistry() {
       <HubPageForm<RemoteRegistryProps>
         submitText={t('Create remote registry')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={{ name: '', url: '' }}
       >
         <>
@@ -135,7 +135,7 @@ export function EditRemoteRegistry() {
 
   const handleRefresh = () => {
     if (!error && !remoteRegistry) {
-      navigate(-1);
+      void navigate(-1);
     }
   };
 
@@ -204,7 +204,7 @@ export function EditRemoteRegistry() {
       <HubPageForm<RemoteRegistryProps>
         submitText={t('Save remote registry')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={remoteRegistryDefaultValues}
       >
         <RemoteInputs disableEditName onClear={handleOnClear} shouldHideField={shouldHideField} />

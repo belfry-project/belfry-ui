@@ -35,7 +35,7 @@ export function CreateRole(props: { breadcrumbLabelForPreviousPage?: string }) {
     const newRole = await postRequest(awxAPI`/role_definitions/`, Role);
     pageNavigate(AwxRoute.RoleDetails, { params: { id: newRole.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (
@@ -78,7 +78,7 @@ export function EditRole(props: { breadcrumbLabelForPreviousPage?: string }) {
     await patchRequest(awxAPI`/role_definitions/${id.toString()}/`, data);
     pageNavigate(AwxRoute.RoleDetails, { params: { id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   if (Number.isInteger(id)) {

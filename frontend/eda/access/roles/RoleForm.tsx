@@ -35,7 +35,7 @@ export function CreateRole(props: { breadcrumbLabelForPreviousPage?: string }) {
     const newRole = await postRequest(edaAPI`/role_definitions/`, Role);
     pageNavigate(EdaRoute.RolePage, { params: { id: newRole.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (
@@ -78,13 +78,13 @@ export function EditRole(props: { breadcrumbLabelForPreviousPage?: string }) {
   const onSubmit: PageFormSubmitHandler<EdaRbacRole> = async (Role) => {
     if (Number.isInteger(id)) {
       Role = await patchRequest(edaAPI`/role_definitions/${id.toString()}/`, Role);
-      navigate(-1);
+      void navigate(-1);
     } else {
       const newRole = await postRequest(edaAPI`/role_definitions/`, Role);
       pageNavigate(EdaRoute.RolePage, { params: { id: newRole.id } });
     }
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   if (Number.isInteger(id)) {

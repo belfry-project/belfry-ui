@@ -138,7 +138,7 @@ export function CreateCredential() {
     (cache as unknown as { clear: () => void }).clear?.();
     pageNavigate(EdaRoute.CredentialPage, { params: { id: newCredential.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (
@@ -180,9 +180,9 @@ export function EditCredential() {
   const onSubmit: PageFormSubmitHandler<EdaCredentialCreate> = async (credential) => {
     await patchRequest(edaAPI`/eda-credentials/${id.toString()}/`, credential);
     (cache as unknown as { clear: () => void }).clear?.();
-    navigate(-1);
+    void navigate(-1);
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   if (!credential) {

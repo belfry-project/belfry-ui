@@ -39,7 +39,7 @@ export function InventoryRunCommand() {
 
   const navigate = useNavigate();
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
 
   const handleSubmit = async (data: RunCommandWizard) => {
     const eeId = data.execution_environment;

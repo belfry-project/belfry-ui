@@ -79,7 +79,7 @@ export function CreateRulebookActivation() {
     pageNavigate(EdaRoute.RulebookActivationPage, { params: { id: newRulebookActivation.id } });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (

@@ -57,7 +57,7 @@ export function PageRoutedTabs(props: {
   ) => {
     event.preventDefault();
     if (eventKey === props.backTab?.page) {
-      navigate(getPageUrl(eventKey.toString(), { params: props.params, query }));
+      void navigate(getPageUrl(eventKey.toString(), { params: props.params, query }));
     } else {
       pageNavigate(eventKey.toString(), { params: props.params, query: sharedQueryKeysObj });
     }

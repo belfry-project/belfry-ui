@@ -32,7 +32,7 @@ export function AddInstance() {
     pageNavigate(AwxRoute.InstanceDetails, { params: { id: newInstance.id } });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (
@@ -81,7 +81,7 @@ export function EditInstance() {
     pageNavigate(AwxRoute.InstanceDetails, { params: { id } });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   if (instance) {

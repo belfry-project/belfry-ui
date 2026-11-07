@@ -49,7 +49,7 @@ function CreateUserTokenInternal(props: { user: AwxUser; onCreate: (newToken: To
   const postRequest = usePostRequest<Token, Token>();
   const pageNavigate = usePageNavigate();
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const onSubmit: PageFormSubmitHandler<Token> = async (tokenInput) => {
     const newToken = await postRequest(awxAPI`/tokens/`, tokenInput);
     props.onCreate(newToken);

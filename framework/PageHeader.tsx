@@ -51,7 +51,7 @@ function Breadcrumbs(props: { breadcrumbs?: ICatalogBreadcrumb[]; style?: CSSPro
                 onClick={(e) => {
                   e.preventDefault();
                   if (!breadcrumb.to) return;
-                  navigate(breadcrumb.to);
+                  void navigate(breadcrumb.to);
                 }}
               >
                 {breadcrumb.label}

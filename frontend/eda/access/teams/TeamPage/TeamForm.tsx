@@ -41,7 +41,7 @@ export function CreateTeam() {
     const newTeam = await postRequest(edaAPI`/teams/`, team);
     pageNavigate(EdaRoute.TeamDetails, { params: { id: newTeam.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
   return (
     <PageLayout>
@@ -84,7 +84,7 @@ export function EditTeam() {
     const newTeam = await requestPatch<EdaTeam>(edaAPI`/teams/${id.toString()}/`, team);
     pageNavigate(EdaRoute.TeamDetails, { params: { id: newTeam.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
   return (
     <PageLayout>

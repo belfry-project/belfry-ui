@@ -59,7 +59,7 @@ export function CredentialTypeDetailInner(props: { credentialType: CredentialTyp
           value={props.credentialType.created}
           author={props.credentialType.summary_fields?.created_by?.username}
           onClick={() =>
-            history(
+            void history(
               getPageUrl(AwxRoute.UserDetails, {
                 params: {
                   id: (props.credentialType.summary_fields?.created_by?.id ?? 0).toString(),
@@ -73,7 +73,7 @@ export function CredentialTypeDetailInner(props: { credentialType: CredentialTyp
         value={props.credentialType.modified}
         author={props.credentialType.summary_fields?.modified_by?.username}
         onClick={() =>
-          history(
+          void history(
             getPageUrl(AwxRoute.UserDetails, {
               params: {
                 id: (props.credentialType.summary_fields?.modified_by?.id ?? 0).toString(),

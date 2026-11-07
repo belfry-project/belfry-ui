@@ -178,7 +178,7 @@ export function CreateJobTemplate() {
       <AwxPageForm<JobTemplateForm>
         submitText={t('Create job template')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={defaultValues}
       >
         <JobTemplateInputs />

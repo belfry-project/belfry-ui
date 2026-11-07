@@ -90,7 +90,7 @@ export function ScheduleAddWizard(props: {
     }
   };
 
-  const onCancel = () => navigate(location.pathname.replace('create', ''));
+  const onCancel = () => void navigate(location.pathname.replace('create', ''));
 
   const steps: PageWizardStep[] = useMemo(() => {
     return [

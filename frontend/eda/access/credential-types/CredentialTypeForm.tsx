@@ -97,7 +97,7 @@ export function EditCredentialType() {
   };
 
   const hasCredentialType = !!credentialType;
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   return (
     <PageLayout>
       <PageHeader

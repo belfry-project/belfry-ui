@@ -13,7 +13,7 @@ import { HubLogin } from './HubLogin';
 // eslint-disable-next-line no-restricted-exports
 export default function HubMain() {
   return (
-    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <BrowserRouter>
       <PageFramework defaultRefreshInterval={10}>
         <HubActiveUserProvider>
           <HubLogin>

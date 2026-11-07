@@ -24,7 +24,7 @@ export function PageWizardBody({
     if (onCancel) {
       onCancel();
     } else {
-      navigate(-1);
+      void navigate(-1);
     }
   }, [navigate, onCancel]);
 

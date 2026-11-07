@@ -34,7 +34,7 @@ export function Test() {
   const items = fillReportTypes();
 
   function selectionChange(item: string) {
-    navigate(`${location.pathname}?reportName=${item}`);
+    void navigate(`${location.pathname}?reportName=${item}`);
   }
 
   return (
