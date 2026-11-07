@@ -24,6 +24,9 @@ export type IAwxView<T extends { id: number }> = IView &
     updateItem: (item: T) => void;
   };
 
+/** The query parameter of AWX host lists that takes a host filter expression (see FactFilter). */
+export const hostFilterQueryKey = 'host_filter';
+
 export type QueryParams = {
   [key: string]: string | Array<string>;
 };
@@ -82,6 +85,8 @@ export function useAwxView<T extends { id: number }>(options: {
   const view = useView({
     defaultValues: { sort: defaultSort, sortDirection: defaultSortDirection },
     disableQueryString,
+    // a host_filter can contain commas (e.g. ansible_facts__os__in=RedHat,Rocky)
+    unsplitQueryStringKeys: [hostFilterQueryKey],
   });
   const itemCountRef = useRef<{ itemCount: number | undefined }>({ itemCount: undefined });
 
@@ -107,6 +112,9 @@ export function useAwxView<T extends { id: number }>(options: {
                 .split('+')
                 .join(',')}&or__object2__in=${values[0].split('+').join(',')}`;
             }
+          } else if (toolbarFilter.query === hostFilterQueryKey) {
+            // a host_filter is one expression with spaces, quotes and = signs
+            queryString += `${hostFilterQueryKey}=${encodeURIComponent(values.join(','))}`;
           } else if (toolbarFilter.query === 'search') {
             queryString += values.map((value) => `${toolbarFilter.query}=${value}`).join('&');
           } else {

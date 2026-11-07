@@ -17,7 +17,7 @@ import { useInventoriesHostsColumns } from '../hooks/useInventoriesHostsColumns'
 export function InventoryHosts() {
   const { t } = useTranslation();
   const pageNavigate = usePageNavigate();
-  const toolbarFilters = useHostsFilters();
+  const toolbarFilters = useHostsFilters({ hostFilter: true });
   const tableColumns = useInventoriesHostsColumns();
   const params = useParams<{ id: string; inventory_type: string }>();
   const view = useAwxView<AwxHost>({

@@ -1,5 +1,8 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { Button } from '@patternfly/react-core';
+import { FilterIcon } from '@patternfly/react-icons';
+import { useFormContext } from 'react-hook-form';
+import { useParams, useSearchParams } from 'react-router-dom';
 import {
   LoadingPage,
   PageFormCheckbox,
@@ -37,6 +40,7 @@ import { AwxError } from '../../common/AwxError';
 import { ConstructedInventoryHint } from './components/ConstructedInventoryHint';
 import { LabelHelp } from './components/LabelHelp';
 import { valueToObject } from '../../../../framework';
+import { appendHostFilterTerm, useFactFilterDialog } from '../hosts/components/FactFilter';
 
 export type InventoryCreate = Inventory & {
   instanceGroups: InstanceGroup[];
@@ -56,6 +60,9 @@ export function CreateInventory(props: { inventoryKind: '' | 'constructed' | 'sm
   const { inventoryKind } = props;
   const pageNavigate = usePageNavigate();
   const postRequest = usePostRequest<Inventory, Inventory>();
+  // the Smart inventory button of the hosts list passes its filters, including host_filter
+  const [searchParams] = useSearchParams();
+  const hostFilter = searchParams.get('host_filter') ?? '';
 
   const onSubmit: PageFormSubmitHandler<InventoryCreate> = async (data) => {
     const { instanceGroups, ...inventory } = data;
@@ -109,6 +116,7 @@ export function CreateInventory(props: { inventoryKind: '' | 'constructed' | 'sm
           kind: inventoryKind,
           name: '',
           description: '',
+          host_filter: hostFilter,
           instanceGroups: [],
           variables: '---\n',
         }
@@ -335,6 +343,8 @@ function InventoryInputs(props: { inventoryKind: string }) {
   const { t } = useTranslation();
   const { inventoryKind } = props;
   const inventoryFormDetailLabels = useInventoryFormDetailLabels();
+  const openFactFilterDialog = useFactFilterDialog();
+  const { getValues, setValue } = useFormContext<InventoryCreate>();
   return (
     <>
       <PageFormTextInput<InventoryCreate>
@@ -372,6 +382,23 @@ function InventoryInputs(props: { inventoryKind: string }) {
           }
           placeholder={t('Enter smart host filter')}
           isRequired
+          button={
+            <Button
+              variant="control"
+              icon={<FilterIcon />}
+              data-cy="add-fact-filter"
+              onClick={() =>
+                openFactFilterDialog((term) =>
+                  setValue('host_filter', appendHostFilterTerm(getValues('host_filter'), term), {
+                    shouldDirty: true,
+                    shouldValidate: true,
+                  })
+                )
+              }
+            >
+              {t('Add fact condition')}
+            </Button>
+          }
         />
       )}
       <PageFormInstanceGroupSelect<InventoryCreate>
