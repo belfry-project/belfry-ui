@@ -30,9 +30,9 @@ export function EditInstance() {
     ) / 100) as unknown as string;
     await requestPatch<Instance>(awxAPI`/instances/${id.toString()}/`, editedInstance);
     (cache as unknown as { clear: () => void }).clear?.();
-    navigate(-1);
+    void navigate(-1);
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
 
   const getPageUrl = useGetPageUrl();
 

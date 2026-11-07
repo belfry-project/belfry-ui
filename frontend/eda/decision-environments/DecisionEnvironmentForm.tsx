@@ -122,7 +122,7 @@ export function CreateDecisionEnvironment() {
     (cache as unknown as { clear: () => void }).clear?.();
     pageNavigate(EdaRoute.DecisionEnvironmentPage, { params: { id: newDecisionEnvironment.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
   return (
     <PageLayout>
@@ -165,9 +165,9 @@ export function EditDecisionEnvironment() {
   const onSubmit: PageFormSubmitHandler<EdaDecisionEnvironment> = async (decisionEnvironment) => {
     await patchRequest(edaAPI`/decision-environments/${id.toString()}/`, decisionEnvironment);
     (cache as unknown as { clear: () => void }).clear?.();
-    navigate(-1);
+    void navigate(-1);
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   if (!decisionEnvironment) {

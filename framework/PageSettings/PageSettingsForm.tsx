@@ -15,12 +15,12 @@ export function PageSettingsForm() {
   const onSubmit = useCallback(
     (settings: IPageSettings) => {
       setSettings(settings);
-      navigate('..');
+      void navigate('..');
       return Promise.resolve();
     },
     [navigate, setSettings]
   );
-  const onCancel = useCallback(() => navigate('..'), [navigate]);
+  const onCancel = useCallback(() => void navigate('..'), [navigate]);
   const options = usePageSettingsOptions();
   return (
     <PageLayout>

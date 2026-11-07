@@ -107,7 +107,7 @@ export function AddRolesForm(props: { users?: AwxUser[]; teams?: Team[]; onClose
 
         return Promise.resolve();
       }}
-      onCancel={() => navigate(-1)}
+      onCancel={() => void navigate(-1)}
       submitText={t('Submit')}
     >
       <PageFormSelect

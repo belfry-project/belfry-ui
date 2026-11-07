@@ -47,7 +47,7 @@ export function CreateOrganization() {
     await Promise.all(igRequests);
     pageNavigate(AwxRoute.OrganizationDetails, { params: { id: createdOrganization.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
   return (
     <PageLayout>
@@ -119,7 +119,7 @@ export function EditOrganization() {
     await Promise.all(igRequests);
     pageNavigate(AwxRoute.OrganizationDetails, { params: { id: editedOrganization.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
   return (
     <PageLayout>

@@ -13,7 +13,7 @@ import { EdaLogin } from './EdaLogin';
 // eslint-disable-next-line no-restricted-exports
 export default function EdaMain() {
   return (
-    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <BrowserRouter>
       <PageFramework defaultRefreshInterval={10}>
         <EdaActiveUserProvider>
           <EdaLogin>

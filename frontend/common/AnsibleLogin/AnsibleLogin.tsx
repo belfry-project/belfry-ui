@@ -12,7 +12,7 @@ import {
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { useFrameworkTranslations } from '../../../framework';
 import { ErrorBoundary } from '../../../framework/components/ErrorBoundary';

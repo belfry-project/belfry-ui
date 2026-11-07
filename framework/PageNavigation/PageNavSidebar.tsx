@@ -38,7 +38,7 @@ export function usePageNavBarClick() {
   const navBar = usePageNavSideBar();
   const onClick = useCallback(
     (path: string) => {
-      navigate(path);
+      void navigate(path);
       if (!isXl) navBar.setState({ isOpen: !navBar.isOpen });
     },
     [navigate, isXl, navBar]

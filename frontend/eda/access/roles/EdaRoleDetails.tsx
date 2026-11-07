@@ -42,7 +42,7 @@ export function EdaRoleDetails() {
               value={role?.created}
               author={role?.summary_fields?.created_by?.username}
               onClick={() =>
-                history(
+                void history(
                   getPageUrl(EdaRoute.UserDetails, {
                     params: {
                       id: (role.summary_fields?.created_by?.username ?? 0).toString(),

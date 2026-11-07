@@ -49,7 +49,7 @@ export function GroupEdit() {
     });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   if (!group) {
     return null;
   }

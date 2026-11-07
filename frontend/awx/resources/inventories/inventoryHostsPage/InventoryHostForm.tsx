@@ -75,7 +75,7 @@ export function CreateHost() {
     }
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
 
   const inventoryResponse = useGetInventory(params.id, params.inventory_type);
 
@@ -218,7 +218,7 @@ export function EditHost() {
     }
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
 
   if (!host) {
     return (

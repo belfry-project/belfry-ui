@@ -45,7 +45,7 @@ export function HubRoleDetails() {
               value={role?.created}
               author={role?.summary_fields?.created_by?.username}
               onClick={() =>
-                history(
+                void history(
                   getPageUrl(HubRoute.UserDetails, {
                     params: {
                       id: (role.summary_fields?.created_by?.username ?? 0).toString(),

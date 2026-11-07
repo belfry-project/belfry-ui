@@ -41,7 +41,7 @@ export function CreateRole(props: { breadcrumbLabelForPreviousPage?: string }) {
     const newRole = await postRequest(hubAPI`/_ui/v2/role_definitions/`, createdRole);
     pageNavigate(HubRoute.RolePage, { params: { id: newRole.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (
@@ -84,13 +84,13 @@ export function EditRole(props: { breadcrumbLabelForPreviousPage?: string }) {
   const onSubmit: PageFormSubmitHandler<HubRbacRole> = async (Role) => {
     if (Number.isInteger(id)) {
       Role = await patchRequest(hubAPI`/_ui/v2/role_definitions/${id.toString()}/`, Role);
-      navigate(-1);
+      void navigate(-1);
     } else {
       const newRole = await postRequest(hubAPI`/_ui/v2/role_definitions/`, Role);
       pageNavigate(HubRoute.RolePage, { params: { id: newRole.id } });
     }
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   if (Number.isInteger(id)) {

@@ -59,7 +59,7 @@ export function TextCell(props: TextCellProps) {
                     props.onClick();
                   } else {
                     if (!props.to) return;
-                    navigate(props.to);
+                    void navigate(props.to);
                   }
                 }}
               >

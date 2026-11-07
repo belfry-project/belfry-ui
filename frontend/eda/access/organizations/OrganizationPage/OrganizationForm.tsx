@@ -30,7 +30,7 @@ export function CreateOrganization() {
     const newOrganization = await postRequest(edaAPI`/organizations/`, organization);
     pageNavigate(EdaRoute.OrganizationDetails, { params: { id: newOrganization.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
   return (
     <PageLayout>
@@ -71,7 +71,7 @@ export function EditOrganization() {
     );
     pageNavigate(EdaRoute.OrganizationDetails, { params: { id: newOrganization.id } });
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
   return (
     <PageLayout>

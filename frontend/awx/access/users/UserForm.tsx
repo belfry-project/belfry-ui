@@ -50,7 +50,7 @@ export function CreateUser() {
     pageNavigate(AwxRoute.UserDetails, { params: { id: newUser.id } });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (
@@ -103,7 +103,7 @@ export function EditUser() {
 
   const getPageUrl = useGetPageUrl();
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
 
   if (!user) {
     return (

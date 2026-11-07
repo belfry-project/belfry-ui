@@ -74,7 +74,7 @@ export function TeamDetails<T extends TeamDetailsType>(props: {
             onClick={
               createdByUserDetailsUrl
                 ? () => {
-                    navigate(createdByUserDetailsUrl);
+                    void navigate(createdByUserDetailsUrl);
                   }
                 : undefined
             }
@@ -88,7 +88,7 @@ export function TeamDetails<T extends TeamDetailsType>(props: {
           onClick={
             modifiedByUserDetailsUrl
               ? () => {
-                  navigate(modifiedByUserDetailsUrl);
+                  void navigate(modifiedByUserDetailsUrl);
                 }
               : undefined
           }

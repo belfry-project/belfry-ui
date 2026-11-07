@@ -179,7 +179,7 @@ export function CreateCredential() {
       <AwxPageForm
         submitText={t('Create credential')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         additionalActions={
           isExternalCredential ? (
             <Button
@@ -412,7 +412,7 @@ export function EditCredential() {
       );
     }
     (cache as unknown as { clear: () => void }).clear?.();
-    navigate(-1);
+    void navigate(-1);
   };
   if (!credential) {
     return (
@@ -446,7 +446,7 @@ export function EditCredential() {
       <AwxPageForm
         submitText={t('Save credential')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={initialValues}
         additionalActions={
           isExternalCredential ? (

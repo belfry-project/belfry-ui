@@ -280,7 +280,7 @@ export function CreateProject() {
     pageNavigate(EdaRoute.ProjectPage, { params: { id: newProject.id } });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (
@@ -322,9 +322,9 @@ export function EditProject() {
   const onSubmit: PageFormSubmitHandler<EdaProjectCreate> = async (project) => {
     await patchRequest(edaAPI`/projects/${id.toString()}/`, project);
     (cache as unknown as { clear: () => void }).clear?.();
-    navigate(-1);
+    void navigate(-1);
   };
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
   if (!project) {
     return (

@@ -75,7 +75,7 @@ export function CreateProject() {
       <AwxPageForm
         submitText={t('Create project')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={defaultValues as Project}
       >
         <ProjectInputs />
@@ -143,7 +143,7 @@ export function EditProject() {
       <AwxPageForm<Project>
         submitText={t('Save project')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={project}
       >
         <ProjectInputs project={project} />

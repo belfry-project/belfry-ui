@@ -84,7 +84,7 @@ export function ScheduleEditWizard(props: { resourceEndPoint: string }) {
     }
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
 
   const steps: PageWizardStep[] = useMemo(() => {
     return [

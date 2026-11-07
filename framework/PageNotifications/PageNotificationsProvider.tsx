@@ -168,7 +168,7 @@ function PageNotification(props: { notification: IPageNotification }) {
     <NotificationDrawerListItem
       variant={props.notification.variant}
       onClick={() => {
-        navigate(props.notification.to);
+        void navigate(props.notification.to);
         setNotificationsDrawerOpen(false);
       }}
     >

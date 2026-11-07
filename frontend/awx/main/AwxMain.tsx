@@ -14,7 +14,7 @@ import { AwxLogin } from './AwxLogin';
 // eslint-disable-next-line no-restricted-exports
 export default function AwxMain() {
   return (
-    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <BrowserRouter>
       <PageFramework defaultRefreshInterval={10}>
         <AwxActiveUserProvider>
           <AwxLogin>

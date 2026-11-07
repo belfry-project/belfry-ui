@@ -53,7 +53,7 @@ export function CreateHubNamespace() {
       <HubPageForm<HubNamespace>
         submitText={t('Create namespace')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={{ groups: [], links: [{ name: '', url: '' }] }}
         errorAdapter={HubNamespaceErrorAdapter}
       >
@@ -85,7 +85,7 @@ export function EditHubNamespace() {
 
     await putRequest(hubAPI`/_ui/v1/my-namespaces/${name}/`, namespace);
     clearCacheByKey(hubAPI`/_ui/v1/my-namespaces/${name}/`);
-    navigate(-1);
+    void navigate(-1);
   };
   const getPageUrl = useGetPageUrl();
 
@@ -137,7 +137,7 @@ export function EditHubNamespace() {
       <HubPageForm<HubNamespace>
         submitText={t('Save namespace')}
         onSubmit={onSubmit}
-        onCancel={() => navigate(-1)}
+        onCancel={() => void navigate(-1)}
         defaultValue={namespace}
         errorAdapter={HubNamespaceErrorAdapter}
       >

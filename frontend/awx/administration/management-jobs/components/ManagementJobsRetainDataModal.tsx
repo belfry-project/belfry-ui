@@ -34,7 +34,7 @@ export function ManagementJobsRetainDataModal(
       retainInput
     );
     props.popDialog();
-    navigate(getJobOutputUrl(newJob as unknown as UnifiedJob));
+    void navigate(getJobOutputUrl(newJob as unknown as UnifiedJob));
   };
 
   const onCancel = () => props.popDialog();

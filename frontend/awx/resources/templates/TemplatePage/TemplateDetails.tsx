@@ -257,7 +257,7 @@ export function TemplateDetails(props: { templateId?: string; disableScroll?: bo
         value={template.modified}
         author={template.summary_fields.modified_by?.username}
         onClick={() =>
-          history(
+          void history(
             getPageUrl(AwxRoute.UserDetails, {
               params: { id: (template.summary_fields?.modified_by?.id ?? 0).toString() },
             })

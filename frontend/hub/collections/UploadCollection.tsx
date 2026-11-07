@@ -74,7 +74,7 @@ export function UploadCollectionByFile() {
   const repositories = useRepositories();
   const navigate = useNavigate();
   const pageNavigate = usePageNavigate();
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const toolbarFilters = useRepoFilters();
   const tableColumns = useRepositoriesColumns();
   const [onlyStaging, setOnlyStaging] = useState(true);

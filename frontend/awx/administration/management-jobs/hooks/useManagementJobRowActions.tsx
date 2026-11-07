@@ -31,7 +31,7 @@ export function useManagementJobRowActions() {
           awxAPI`/system_job_templates/${String(managementJob.id)}/launch/`,
           {}
         );
-        navigate(getJobOutputUrl(newJob as UnifiedJob));
+        void navigate(getJobOutputUrl(newJob as UnifiedJob));
       }
     },
     [openManagementJobsModal, getJobOutputUrl, navigate, postRequest]

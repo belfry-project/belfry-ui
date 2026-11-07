@@ -53,7 +53,7 @@ export function CreateUser() {
     pageNavigate(EdaRoute.UserPage, { params: { id: newUser.id } });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   return (
@@ -101,7 +101,7 @@ export function EditCurrentUser() {
     pageNavigate(EdaRoute.MyPage, { params: { id: updatedUser.id } });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   if (!user) {
     return (
       <PageLayout>
@@ -155,7 +155,7 @@ export function EditUser() {
     pageNavigate(EdaRoute.UserPage, { params: { id: updatedUser.id } });
   };
 
-  const onCancel = () => navigate(-1);
+  const onCancel = () => void navigate(-1);
   const getPageUrl = useGetPageUrl();
 
   if (!user) {

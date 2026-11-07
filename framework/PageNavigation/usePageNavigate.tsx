@@ -16,7 +16,7 @@ export function usePageNavigate() {
     ) => {
       const url = getPageUrl(pageId, options);
       if (url) {
-        navigate(url);
+        void navigate(url);
       }
     },
     [navigate, getPageUrl]
