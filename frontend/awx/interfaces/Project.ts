@@ -59,6 +59,7 @@ export interface Project
     organization: string;
     last_job?: string;
     last_update?: string;
+    launch_playbook?: string;
   };
 }
 
