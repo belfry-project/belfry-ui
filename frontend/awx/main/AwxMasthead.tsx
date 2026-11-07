@@ -57,6 +57,16 @@ export function AwxMasthead() {
               {t('Documentation')}
             </DropdownItem>
             <DropdownItem
+              id="api-explorer"
+              icon={<ExternalLinkAltIcon />}
+              component="a"
+              href="/api/v2/docs/"
+              target="_blank"
+              data-cy="masthead-api-explorer"
+            >
+              {t('API explorer')}
+            </DropdownItem>
+            <DropdownItem
               id="about"
               onClick={() =>
                 openAnsibleAboutModal({
