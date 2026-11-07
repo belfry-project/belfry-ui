@@ -78,11 +78,9 @@ export function WorkflowOutputNavigation(props: WorkflowOutputNavigationProps) {
       ref={toggleRef}
       onClick={onToggleClick}
       isExpanded={isOpen}
-      style={
-        {
-          width: '180px',
-        } as React.CSSProperties
-      }
+      style={{
+        width: '180px',
+      }}
     >
       {t(`Workflow Job 1/{{totalResults}}`, { totalResults })}
     </MenuToggle>

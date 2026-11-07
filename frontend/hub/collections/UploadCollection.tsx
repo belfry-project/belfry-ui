@@ -213,7 +213,7 @@ export function UploadCollectionByFile() {
 
       await hubPostRequestFile(
         hubAPI`/v3/plugin/ansible/content/${base_path}/collections/artifacts/`,
-        data.file as Blob
+        data.file
       );
 
       if (onlyStaging) {

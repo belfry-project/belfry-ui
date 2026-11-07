@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { Bullseye, Button, PageSection, Spinner } from '@patternfly/react-core';
 import { CogIcon } from '@patternfly/react-icons';
 import { useTranslation } from 'react-i18next';

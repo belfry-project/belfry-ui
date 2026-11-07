@@ -1,5 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
-
 import { InventorySourceDetails } from './InventorySourceDetails';
 
 describe('InventorySourceDetails', () => {

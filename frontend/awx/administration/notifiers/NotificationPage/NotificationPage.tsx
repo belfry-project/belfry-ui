@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { DropdownPosition } from '@patternfly/react-core/deprecated';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';

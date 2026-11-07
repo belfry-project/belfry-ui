@@ -41,9 +41,7 @@ export function useHubMultiSelectListView<T extends ResourceTypeWithID | Resourc
       }
       return (item as ResourceTypeWithPulpHref).pulp_href;
     },
-    defaultSelection: ((wizardData as { [key: string]: [] })[fieldName] ||
-      stepData[fieldName] ||
-      []) as T[],
+    defaultSelection: (wizardData as { [key: string]: [] })[fieldName] || stepData[fieldName] || [],
   });
 
   useEffect(() => {

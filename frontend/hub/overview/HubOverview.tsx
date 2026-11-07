@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { Bullseye, Button, ButtonVariant } from '@patternfly/react-core';
 import { DropdownPosition } from '@patternfly/react-core/deprecated';
 import { CogIcon } from '@patternfly/react-icons';

@@ -109,7 +109,7 @@ export function PageFormDataEditor<
   // Here we store the value the data editor is working with
   const [dataEditorValue, setDataEditorValue] = useState<string>(() => {
     const value = getValues(name);
-    if (typeof value === 'string') return value as string;
+    if (typeof value === 'string') return value;
     else return objectToString(value, defaultLanguage);
   });
 
@@ -241,10 +241,7 @@ export function PageFormDataEditor<
                       type: PageActionType.Button,
                       selection: PageActionSelection.None,
                       onClick: () => {
-                        setValue(
-                          props.name,
-                          undoValue as unknown as PathValue<TFieldValues, TFieldName>
-                        );
+                        setValue(props.name, undoValue);
                         setDataEditorValue('');
                         setTimeout(() => {
                           setDataEditorValue(

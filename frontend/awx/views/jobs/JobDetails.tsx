@@ -16,7 +16,6 @@ import { AwxRoute } from '../../main/AwxRoutes';
 import { LastModifiedPageDetail } from '../../../common/LastModifiedPageDetail';
 import { Job } from '../../interfaces/Job';
 import { useVerbosityString } from '../../common/useVerbosityString';
-import { UnifiedJob } from '../../interfaces/UnifiedJob';
 
 export function JobDetails() {
   const { t } = useTranslation();
@@ -30,7 +29,7 @@ export function JobDetails() {
 
   return (
     <PageDetails>
-      <PageDetailsFromColumns columns={columns} item={job as UnifiedJob} />
+      <PageDetailsFromColumns columns={columns} item={job} />
       <PageDetail isEmpty={!job.playbook} label={t('Playbook')}>
         {job.playbook}
       </PageDetail>

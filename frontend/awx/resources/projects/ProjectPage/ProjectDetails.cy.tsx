@@ -1,5 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
-
 import { ProjectDetails } from './ProjectDetails';
 
 describe('ProjectDetails', () => {

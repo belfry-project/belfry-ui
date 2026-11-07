@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { SWRConfiguration } from 'swr';
 import { createRequestError } from './RequestError';
 import { requestCommon } from './requestCommon';

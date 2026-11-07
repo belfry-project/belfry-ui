@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Trans, useTranslation } from 'react-i18next';
 
 import {
@@ -597,7 +596,6 @@ export function validateUrl(value: string, t: TFunction<'translation', undefined
   }
   // URL regex from https://urlregex.com/
   if (
-    // eslint-disable-next-line max-len
     !/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www\.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w\-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[.!/\\\w]*))?)/.test(
       value
     )

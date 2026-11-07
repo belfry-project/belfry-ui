@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { PageSection } from '@patternfly/react-core';
 import { ReactNode, useState } from 'react';
 import { PageMultiSelect } from './PageMultiSelect';

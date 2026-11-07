@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-/* eslint-disable i18next/no-literal-string */
 import mockCredentialType from '../../../../../cypress/fixtures/credential_type.json';
 import { formatDateString } from '../../../../../framework/utils/formatDateString';
 import { CredentialType } from '../../../interfaces/CredentialType';

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { randomString } from '../../../../../framework/utils/random-string';
 import { Credential } from '../../../../../frontend/awx/interfaces/Credential';
 import { Inventory } from '../../../../../frontend/awx/interfaces/Inventory';

@@ -24,7 +24,7 @@ export const SortByGroup: FunctionComponent<Props> = ({ filters, setFilters, sor
         categoryKey="sort_options"
         value={filters.sort_options}
         selectOptions={sort_options}
-        setValue={(value) => setFilters('sort_options', value as string)}
+        setValue={(value) => setFilters('sort_options', value)}
       />
     </ToolbarItem>
     <ToolbarItem data-cy={'sort'}>

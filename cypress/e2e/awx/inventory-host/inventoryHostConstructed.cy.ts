@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Inventory } from '../../../../frontend/awx/interfaces/Inventory';
 import { InventoryGroup } from '../../../../frontend/awx/interfaces/InventoryGroup';
 import { Organization } from '../../../../frontend/awx/interfaces/Organization';

@@ -249,10 +249,7 @@ export function PageFormSelect<
                     type: PageActionType.Button,
                     selection: PageActionSelection.None,
                     onClick: () => {
-                      setValue(
-                        props.name,
-                        undoValue as unknown as PathValue<TFieldValues, TFieldName>
-                      );
+                      setValue(props.name, undoValue);
                     },
                     isHidden: () => !props.enableUndo || value === undoValue,
                   },

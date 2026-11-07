@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useParams } from 'react-router-dom';
 import { LoadingPage } from '../../../../../framework/components/LoadingPage';
 import { UserDetails, UserDetailsType } from '../../../../common/access/UserDetails';

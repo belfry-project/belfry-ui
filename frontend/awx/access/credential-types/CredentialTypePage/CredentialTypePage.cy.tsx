@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { CredentialType } from '../../../interfaces/CredentialType';
 import { CredentialTypePage } from './CredentialTypePage';
 

@@ -107,7 +107,7 @@ export function PageFormFileUpload<
                   id={id}
                   data-cy={id}
                   type={props.type || 'dataURL'}
-                  value={value as string}
+                  value={value}
                   hideDefaultPreview={props.hideDefaultPreview}
                   filename={isLoading ? t('loading...') : filename}
                   filenamePlaceholder={props.placeholder}
@@ -137,7 +137,7 @@ export function PageFormFileUpload<
                   id={id}
                   data-cy={id}
                   type={props.type || 'dataURL'}
-                  value={value as string}
+                  value={value}
                   hideDefaultPreview={props.hideDefaultPreview}
                   filename={isLoading ? t('loading...') : filename}
                   filenamePlaceholder={props.placeholder}

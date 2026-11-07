@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetPageUrl } from '../../../../../framework';
@@ -14,9 +13,7 @@ export function AwxUserDetails() {
   const params = useParams<{ id: string }>();
   const getPageUrl = useGetPageUrl();
   const { data: user } = useGetItem<AwxUser>(awxAPI`/users`, params.id);
-  const itemsResponse = useGet<AwxItemsResponse<Organization>>(
-    user?.related?.organizations as string
-  );
+  const itemsResponse = useGet<AwxItemsResponse<Organization>>(user?.related?.organizations);
   const organizations = useMemo<
     {
       name: string;

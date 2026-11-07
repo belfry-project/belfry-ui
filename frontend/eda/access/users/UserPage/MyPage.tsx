@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { ButtonVariant } from '@patternfly/react-core';
 import { DropdownPosition } from '@patternfly/react-core/deprecated';
 import { PencilAltIcon } from '@patternfly/react-icons';

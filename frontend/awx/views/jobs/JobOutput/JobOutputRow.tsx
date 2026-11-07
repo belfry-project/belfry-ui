@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
+
 import { Label } from '@patternfly/react-core';
 import { AngleRightIcon } from '@patternfly/react-icons';
 import useResizeObserver from '@react-hook/resize-observer';

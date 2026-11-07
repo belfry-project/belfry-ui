@@ -92,7 +92,7 @@ export function useRoleRowActions(onComplete: (roles: HubRbacRole[]) => void) {
               : t(
                   'You do not have permission to delete this role. Please contact your system administrator if there is an issue with your access.'
                 ),
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
         onClick: (role) => deleteRoles([role]),
         isDanger: true,
       },

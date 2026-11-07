@@ -91,7 +91,6 @@ function ExecutionEnvironmentForm(props: { mode: 'add' | 'edit' }) {
       total: registry?.data?.meta?.count || 0,
       values: registry?.data?.data || [],
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [registry.data]);
 
   const onSubmit: PageFormSubmitHandler<ExecutionEnvironmentFormProps> = async (

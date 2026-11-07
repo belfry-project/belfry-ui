@@ -155,7 +155,6 @@ export function RepositoryForm() {
       total: remote?.data?.count || 0,
       values: remote?.data?.results || [],
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [remote.data]);
 
   const selectRemoteSingle = useSelectRemoteSingle();
@@ -287,10 +286,8 @@ export function RepositoryForm() {
                   <HookWrapper>
                     {(setValue) => {
                       if (pipeline === 'staging') {
-                        // eslint-disable-next-line i18next/no-literal-string
                         setValue('hide_from_search', true);
                       } else {
-                        // eslint-disable-next-line i18next/no-literal-string
                         setValue('hide_from_search', false);
                       }
                       return (

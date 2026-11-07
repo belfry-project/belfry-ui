@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 

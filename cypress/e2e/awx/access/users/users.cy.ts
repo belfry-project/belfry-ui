@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /// <reference types="cypress" />
 
 import { randomString } from '../../../../../framework/utils/random-string';

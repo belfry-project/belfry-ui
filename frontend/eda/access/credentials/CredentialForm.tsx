@@ -31,7 +31,6 @@ import { Alert } from '@patternfly/react-core';
 import { useOptions } from '../../../common/crud/useOptions';
 import { ActionsResponse, OptionsResponse } from '../../interfaces/OptionsResponse';
 
-// eslint-disable-next-line react/prop-types
 function CredentialInputs(props: { editMode: boolean }) {
   const { t } = useTranslation();
   const { setValue } = useFormContext();

@@ -172,7 +172,7 @@ export function JobOutputEvents(props: IJobOutputEventsProps) {
             <div style={{ height: beforeRowsHeight }} />
             {visibleItems.map((row, index) => {
               if (typeof row === 'number') {
-                const counter = row as unknown as number;
+                const counter = row;
 
                 return (
                   <JobOutputLoadingRow

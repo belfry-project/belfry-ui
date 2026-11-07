@@ -83,7 +83,7 @@ export const hub_resources_roles_tab: HubResource[] = [
   {
     name: 'Repository',
     creation: () => cy.createHubRepository() as Cypress.Chainable<ResourceObjectHub>,
-    deletion: (resourceObjectHub) => cy.deleteHubRepository(resourceObjectHub as Repository),
+    deletion: (resourceObjectHub) => cy.deleteHubRepository(resourceObjectHub),
     content_type: ContentTypeEnum.Repository,
     permission: 'galaxy.view_ansiblerepository',
   },
@@ -97,7 +97,7 @@ export const hub_resources_roles_tab: HubResource[] = [
   {
     name: 'Namespace',
     creation: () => cy.createHubNamespace() as Cypress.Chainable<ResourceObjectHub>,
-    deletion: (resourceObject) => cy.deleteHubNamespace(resourceObject as HubNamespace),
+    deletion: (resourceObject) => cy.deleteHubNamespace(resourceObject),
     content_type: ContentTypeEnum.Namespace,
     permission: 'galaxy.view_namespace',
   },

@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { PageSection } from '@patternfly/react-core';
 import useResizeObserver from '@react-hook/resize-observer';
 import { ReactNode, createContext, useLayoutEffect, useRef, useState } from 'react';

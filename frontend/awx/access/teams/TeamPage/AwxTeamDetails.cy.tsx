@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { formatDateString } from '../../../../../framework/utils/formatDateString';
 import { AwxTeamDetails } from './AwxTeamDetails';
 import mockAwxTeam from '../../../../../cypress/fixtures/team.json';
